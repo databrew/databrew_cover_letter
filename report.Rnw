@@ -1,0 +1,43 @@
+\documentclass[12pt]{extarticle}
+%\documentclass[17pt]{article}
+%\documentclass[14pt]{extreport}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\usepackage{xcolor}
+
+\usepackage{lipsum}
+\setlength\headheight{26pt} %% just to make warning go away. Adjust the value after looking into the warning.
+% \rhead{{\color{blue}\rule{1cm}{1cm}}}
+
+\rhead{\includegraphics[width=1cm]{logo_clear}}
+
+\begin{document}
+%\SweaveOpts{concordance=TRUE}
+
+
+
+
+<<echo = FALSE>>=
+x <- generate_letter(to = input$to,
+                            author = input$author,
+                            title = input$title,
+                            job = input$job,
+                            company = input$company,
+                     last_paragraph = input$last_paragraph)
+@
+
+\noindent \Sexpr{x} 
+
+
+
+\end{document}
